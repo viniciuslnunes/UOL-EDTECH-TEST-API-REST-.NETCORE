@@ -30,6 +30,7 @@ namespace UolEdtech
         {
 
             services.AddDbContext<EmailContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("EmailConnection")));
+            services.AddDbContext<SmsContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("SmsConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
