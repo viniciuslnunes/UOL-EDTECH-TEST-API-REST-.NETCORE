@@ -15,11 +15,11 @@ namespace UolEdtech.Controllers
         [Route("[controller]")]
         public class SmsController : ControllerBase
         {
-            private SmsContext _context;
+            private AppDbContext _context;
             private IMapper _mapper;
 
 
-            public SmsController(SmsContext context, IMapper mapper)
+            public SmsController(AppDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
@@ -59,7 +59,7 @@ namespace UolEdtech.Controllers
             }
 
             [HttpPut("{id}")]
-            public IActionResult AtualizaSms(int id, [FromBody] ReadSmsDto smsDto)
+            public IActionResult AtualizaSms(int id, [FromBody] UpdateSmsDto smsDto)
             {
                 Sms sms = _context.Smss.FirstOrDefault(sms => sms.Id == id);
 

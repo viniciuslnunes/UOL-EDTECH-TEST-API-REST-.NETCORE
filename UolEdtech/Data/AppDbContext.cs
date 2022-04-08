@@ -7,13 +7,16 @@ using UolEdtech.Models;
 
 namespace UolEdtech.Data
 {
-    public class SmsContext : DbContext
+    public class AppDbContext : DbContext
     {
-        public SmsContext(DbContextOptions<SmsContext> opt) : base(opt)
+        public AppDbContext(DbContextOptions<AppDbContext> opt) : base(opt)
         {
 
         }
 
+        public DbSet<Email> Emails { get; set; }
+
         public DbSet<Sms> Smss { get; set; }
     }
 }
+

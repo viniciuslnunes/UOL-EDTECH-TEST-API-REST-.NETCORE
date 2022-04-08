@@ -29,8 +29,7 @@ namespace UolEdtech
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<EmailContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("EmailConnection")));
-            services.AddDbContext<SmsContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("SmsConnection")));
+            services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(Configuration.GetConnectionString("EdtechConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

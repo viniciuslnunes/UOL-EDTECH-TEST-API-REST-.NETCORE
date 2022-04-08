@@ -14,11 +14,11 @@ namespace UolEdtech.Controllers
         [Route("[controller]")]
         public class EmailController : ControllerBase
         {
-            private EmailContext _context;
+            private AppDbContext _context;
             private IMapper _mapper;
 
 
-            public EmailController(EmailContext context, IMapper mapper)
+            public EmailController(AppDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
@@ -58,7 +58,7 @@ namespace UolEdtech.Controllers
             }
 
             [HttpPut("{id}")]
-            public IActionResult AtualizaEmail(int id, [FromBody] ReadEmailDto emailDto)
+            public IActionResult AtualizaEmail(int id, [FromBody] UpdateEmailDto emailDto)
             {
                 Email email = _context.Emails.FirstOrDefault(email => email.Id == id);
 
